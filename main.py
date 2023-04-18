@@ -28,5 +28,10 @@ top_matches = find_top_matches(similarity_scores, 3)
 
 # display top matching users
 print("top matching users based on interests:")
-for user_idx in top_matches:
-    print("user", user_idx + 1)
+for i, user_idx in enumerate(top_matches):
+    similarity_score = similarity_scores[user_idx]
+    print("user", user_idx + 1, "with similarity score:", similarity_score)
+
+    # display interests of the top matching users
+    user_interests_str = " ".join(str(interest) for interest in user_interests[user_idx])
+    print("interests: ", user_interests_str)
